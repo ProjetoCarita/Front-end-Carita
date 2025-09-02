@@ -3,11 +3,12 @@ import { pontoArrecadacaoService } from '../../services/pontoArrecadacao.service
 import { MapaComponent } from "../mapa/mapa.component";
 import { pontoArrecadacao } from '../../models/pontosArrecadacao.model';
 import { CommonModule } from '@angular/common';
+import { CalendarioComponent } from "../calendario/calendario.component";
 
 @Component({
   selector: 'app-como-ajudar',
   standalone: true,
-  imports: [ MapaComponent, CommonModule],
+  imports: [MapaComponent, CommonModule, CalendarioComponent],
   templateUrl: './como-ajudar.component.html',
 styleUrl: './como-ajudar.component.css'
 })

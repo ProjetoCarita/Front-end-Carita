@@ -39,6 +39,9 @@ width: 500px;
   flex-wrap: wrap;
 }
 
+#Textoperso{
+  background-color: var(--cor-primaria);
+}
 
 
 

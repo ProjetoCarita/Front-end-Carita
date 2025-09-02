@@ -1,0 +1,61 @@
+/* Ajustar o container do calendário */
+:host ::ng-deep .fc {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+  padding: 1rem;
+  border-color: var(--cor-primaria);
+}
+
+/* Título do mês */
+:host ::ng-deep .fc-toolbar-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* Botões de navegação (próximo, anterior, hoje) */
+:host ::ng-deep .fc-button {
+  background: #0066cc;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  padding: 6px 12px;
+  margin: 0 2px;
+  transition: 0.3s ease;
+}
+
+:host ::ng-deep .fc-button:hover {
+  background: #004d99;
+}
+
+/* Dias da semana */
+:host ::ng-deep .fc-col-header-cell {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #333;
+  padding: 10px 0;
+}
+
+/* Dias do mês */
+:host ::ng-deep .fc-daygrid-day {
+  border: 1px solid #e0e0e0;
+}
+
+:host ::ng-deep .fc-daygrid-day-number {
+  font-weight: bold;
+  color: #555;
+  padding: 4px;
+}
+
+/* Eventos */
+:host ::ng-deep .fc-event {
+  background-color: #28a745 !important;
+  border: none !important;
+  color: white !important;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  padding: 2px 6px;
+}
