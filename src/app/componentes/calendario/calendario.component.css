@@ -1,8 +1,8 @@
 /* Ajustar o container do calendário */
 :host ::ng-deep .fc {
-  max-width: 900px;
+  max-width: 500px;
   margin: 2rem auto;
-  background: #fff;
+  background: var(--cor-primaria);
   border-radius: 12px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
   padding: 1rem;
@@ -13,12 +13,12 @@
 :host ::ng-deep .fc-toolbar-title {
   font-size: 1.6rem;
   font-weight: bold;
-  color: #2c3e50;
+  color: var(--cor-textoPrimaria);
 }
 
 /* Botões de navegação (próximo, anterior, hoje) */
 :host ::ng-deep .fc-button {
-  background: #0066cc;
+  background: var(--cor-textoPrimaria) !important;
   border: none;
   color: white;
   border-radius: 8px;
@@ -28,14 +28,14 @@
 }
 
 :host ::ng-deep .fc-button:hover {
-  background: #004d99;
+  background: var(--cor-textoPrimaria)  ;
 }
 
 /* Dias da semana */
 :host ::ng-deep .fc-col-header-cell {
-  background: #f8f9fa;
+  background: var(--cor-primaria);
   font-weight: 600;
-  color: #333;
+  color: var(--cor-textoPrimaria) !important;
   padding: 10px 0;
 }
 
@@ -44,9 +44,11 @@
   border: 1px solid #e0e0e0;
 }
 
+/*numeros dos dias do mes*/
 :host ::ng-deep .fc-daygrid-day-number {
   font-weight: bold;
-  color: #555;
+  color: var(--cor-textoPrimaria);
+  text-decoration: none ;
   padding: 4px;
 }
 
@@ -58,4 +60,10 @@
   font-size: 0.85rem;
   border-radius: 6px;
   padding: 2px 6px;
+}
+
+.modal {
+  display: none;
+  z-index: 1050;
+  overflow: auto;
 }

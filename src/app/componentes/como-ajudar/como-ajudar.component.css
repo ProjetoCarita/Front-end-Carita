@@ -41,6 +41,7 @@ width: 500px;
 
 #Textoperso{
   background-color: var(--cor-primaria);
+  font-weight: 500 !important;
 }
 
 

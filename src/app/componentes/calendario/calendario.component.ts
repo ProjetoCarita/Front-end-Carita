@@ -12,61 +12,93 @@ import ptBrLocale from '@fullcalendar/core/locales/pt-br';
 @Component({
   selector: 'app-calendario',
   standalone: true,
-  imports: [CommonModule, FullCalendarModule], // <-- IMPORTANTE
+  imports: [CommonModule, FullCalendarModule],
   templateUrl: './calendario.component.html',
-  styleUrls: ['./calendario.component.css']
+  styleUrls: ['./calendario.component.css'],
 })
 export class CalendarioComponent {
-  events: any[] = []; // lista de eventos
-
   calendarOptions: any = {
     initialView: 'dayGridMonth',
-    locales: [ptBrLocale],
+    plugins: [dayGridPlugin, interactionPlugin],
     locale: 'pt-br',
-    editable: true,
     selectable: true,
-    events: this.events,
-    // callback para seleção de datas
-    select: (info: any) => this.handleDateSelect(info),
-    // callback para clique em evento
-    eventClick: (info: any) => this.handleEventClick(info),
+    editable: true,
+    eventClick: this.onEventClick.bind(this), // clique no evento
+    select: this.onDateSelect.bind(this),     // clique em dia
+    events: []
   };
 
-  // Função para adicionar novo evento
-  handleDateSelect(info: any) {
-    const title = prompt('Digite o nome do evento:');
+  events: any[] = [];
+  selectedEvent: any = null; // evento selecionado
+
+  // Criar evento clicando em um dia
+  onDateSelect(selectionInfo: any) {
+    const title = prompt('Título do evento:');
     if (title) {
+      const descricao = prompt('Descrição:');
+      const endereco = prompt('Endereço:');
+      const start = prompt('Data/Hora início (YYYY-MM-DD HH:mm):', selectionInfo.startStr);
+      const end = prompt('Data/Hora término (YYYY-MM-DD HH:mm):', selectionInfo.endStr || selectionInfo.startStr);
+
       const newEvent = {
-        id: String(this.events.length + 1),
+        id: String(new Date().getTime()),
         title,
-        start: info.start,
-        end: info.end,
-        allDay: info.allDay
+        start,
+        end,
+        extendedProps: {
+          descricao,
+          endereco,
+        }
       };
-      this.events = [...this.events, newEvent]; // atualiza lista
-      this.calendarOptions.events = this.events; // recarrega no calendário
+
+      this.events.push(newEvent);
+      this.calendarOptions.events = [...this.events];
     }
   }
 
-  // Função para editar ou remover evento existente
-  handleEventClick(info: any) {
-    const event = info.event;
-
-    const action = prompt(
-      `Evento: ${event.title}\nDigite:\n1 - Editar título\n2 - Remover evento`
-    );
-
-    if (action === '1') {
-      const newTitle = prompt('Novo título do evento:', event.title);
-      if (newTitle) {
-        event.setProp('title', newTitle); // altera no calendário
-        this.events = this.events.map(e =>
-          e.id === event.id ? { ...e, title: newTitle } : e
-        );
-      }
-    } else if (action === '2') {
-      event.remove(); // remove do calendário
-      this.events = this.events.filter(e => e.id !== event.id);
+  // Abrir modal com informações do evento
+  onEventClick(clickInfo: any) {
+    this.selectedEvent = clickInfo.event;
+    const modal = document.getElementById('eventModal');
+    if (modal) {
+      modal.style.display = 'block';
     }
+  }
+
+  // Fechar modal
+  closeModal() {
+    const modal = document.getElementById('eventModal');
+    if (modal) {
+      modal.style.display = 'none';
+    }
+    this.selectedEvent = null;
+  }
+
+  // Editar evento
+  editEvent() {
+    if (this.selectedEvent) {
+      const novoTitulo = prompt('Novo título:', this.selectedEvent.title);
+      const novaDescricao = prompt('Descrição:', this.selectedEvent.extendedProps['descricao'] || '');
+      const novoEndereco = prompt('Endereço:', this.selectedEvent.extendedProps['endereco'] || '');
+      const novoInicio = prompt('Data/Hora início (YYYY-MM-DD HH:mm):', this.selectedEvent.startStr);
+      const novoFim = prompt('Data/Hora término (YYYY-MM-DD HH:mm):', this.selectedEvent.endStr || this.selectedEvent.startStr);
+
+      if (novoTitulo) {
+        this.selectedEvent.setProp('title', novoTitulo);
+        this.selectedEvent.setStart(novoInicio);
+        this.selectedEvent.setEnd(novoFim);
+        this.selectedEvent.setExtendedProp('descricao', novaDescricao);
+        this.selectedEvent.setExtendedProp('endereco', novoEndereco);
+      }
+    }
+    this.closeModal();
+  }
+
+  // Excluir evento
+  deleteEvent() {
+    if (this.selectedEvent && confirm(`Excluir evento "${this.selectedEvent.title}"?`)) {
+      this.selectedEvent.remove();
+    }
+    this.closeModal();
   }
 }
