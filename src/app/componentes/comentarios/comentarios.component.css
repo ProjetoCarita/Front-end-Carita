@@ -1,0 +1,44 @@
+.comentarios {
+  background-color: #f4b183; /* tom pêssego */
+  text-align: center;
+  padding: 40px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.comentarios h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #a56b44;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.comentarios-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.comentario-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  width: 220px;
+  padding: 20px;
+  text-align: center;
+}
+
+.comentario-card h3 {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.comentario-card p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+}
