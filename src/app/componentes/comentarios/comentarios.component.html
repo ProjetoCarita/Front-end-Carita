@@ -1,0 +1,10 @@
+<section class="comentarios">
+  <h2>O que dizem sobre nós</h2>
+
+  <div class="comentarios-container">
+    <div class="comentario-card" *ngFor="let comentario of comentarios">
+      <h3>{{ comentario.usuario }}</h3>
+      <p>{{ comentario.texto }}</p>
+    </div>
+  </div>
+</section>
