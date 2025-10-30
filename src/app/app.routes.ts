@@ -20,6 +20,8 @@ import { AlimentosNoticiasComponent } from './componentes/alimentos-noticias/ali
 import { DoacaoNoticiasComponent } from './componentes/doacao-noticias/doacao-noticias.component';
 import { PaginaPixComponent } from './componentes/pagina-pix/pagina-pix.component';
 import { DadosInstituicaoIdComponent } from './componentes/dados-instituicao-id/dados-instituicao-id.component';
+import { BotaoPagamentoComponent } from './componentes/botaoPagamentos/botaoPagamento.component';
+import { DoacaoComponent } from './componentes/doacao/doacao.component';
 
 export const routes: Routes = [
     {path: '', component: MainComponent },
@@ -36,6 +38,7 @@ export const routes: Routes = [
     {path: 'pagina-representante', component: DadosRepresentanteComponent},
     {path: 'pagina-RepresentanteParceiros', component: DadosRepresentanteParceiroComponent},
     {path: 'pagina-ongId', component: DadosInstituicaoIdComponent},
+    {path: 'payment', component: BotaoPagamentoComponent},
     
 
     {path: 'pagina-desativarOng', component: DesativarContaComponent},
@@ -44,7 +47,9 @@ export const routes: Routes = [
     {path: 'noticia-alimentos', component: AlimentosNoticiasComponent},
     {path: 'noticia-doacao', component: DoacaoNoticiasComponent},
     {path: 'pagina-pix', component: PaginaPixComponent},
-
+    { path: 'doacao', component: DoacaoComponent },
+    { path: 'pagamento/sucesso', component: DoacaoComponent }, 
+    { path: 'pagamento/erro', component: DoacaoComponent },
 
 
 

@@ -1,0 +1,107 @@
+.main-content{
+  
+    width: 100%;
+    padding: 0px !important;
+    
+        
+  }
+  
+  .form-content{
+  padding: 20px 30px !important;
+  width: 100%;
+ 
+  }
+  
+  .page-container {
+    display: flex;
+    width: 100%;
+    background-color: var(--cor-primaria);
+  }
+  
+  .sidebar {
+  background-color: #f4f4f4;
+  padding: 30px;
+  width: 30%;
+  }
+  
+  .sidebar-content {
+    text-align: center;
+    
+  }
+.img-usuario{
+    width: 105px;
+    height: 95px;
+    margin-bottom: 20px !important;
+}
+
+  
+  .dados-instituição{
+    margin-bottom: 30px !important;
+    
+  }
+  
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #f8c69a;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+select,
+input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+  margin-bottom: 20px;
+}
+
+select:focus,
+input[type="number"]:focus {
+  border-color: #e08e45;
+}
+
+button {
+    background-color: var(--cor-secundaria) !important;
+    border: none !important;
+    width: 200px;
+    padding: 15px;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+button:hover {
+  background-color: #d17a36;
+  transform: scale(1.02);
+}
+
+p {
+  margin-top: 20px;
+  font-weight: 500;
+  color: #333;
+}

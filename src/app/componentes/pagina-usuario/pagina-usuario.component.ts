@@ -5,6 +5,7 @@ import { DadosRepresentanteComponent } from '../dados-representante/dados-repres
 import { DesativarContaComponent } from '../desativar-conta/desativar-conta.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ApiService } from '../../api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pagina-usuario',
@@ -22,4 +23,16 @@ export class PaginaUsuarioComponent {
     })
   }
   
+}
+@Component({
+  selector: 'app-perfil',
+  standalone: true,
+  templateUrl: './pagina-usuario.component.html',
+})
+export class PerfilComponent {
+  constructor(private router: Router) {}
+
+  irParaDoacao() {
+    this.router.navigate(['/doar']);
+  }
 }
