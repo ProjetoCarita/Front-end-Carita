@@ -7,6 +7,7 @@ import { ParceirosComponent } from '../parceiros/parceiros.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ComoAjudarComponent } from "../como-ajudar/como-ajudar.component";
 import { MapaComponent } from "../mapa/mapa.component";
+import { ComentariosComponent } from '../comentarios/comentarios.component';
 
 
 
