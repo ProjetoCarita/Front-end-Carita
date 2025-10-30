@@ -69,7 +69,7 @@ carregarEventos() {
       const start = selectionInfo.startStr;
     
       const endInput = prompt('Data/Hora término (YYYY-MM-DD HH:mm):', selectionInfo.endStr || selectionInfo.startStr);
-    const end = endInput || start; 
+      const end = endInput || start; 
       const newEvent = { title, description: descricao, address: endereco, start, end };
 
       this.calendarioService.adicionarEvento(newEvent).subscribe({
@@ -109,8 +109,8 @@ carregarEventos() {
 editEvent() {
   if (this.selectedEvent) {
     const novoTitulo = prompt('Novo título:', this.selectedEvent.title);
-    const novaDescricao = prompt('Descrição:', this.selectedEvent.extendedProps['description'] || '');
-    const novoEndereco = prompt('Endereço:', this.selectedEvent.extendedProps['address'] || '');
+    const novaDescricao = prompt('Descrição:', this.selectedEvent.extendedProps['descricao'] || '');
+    const novoEndereco = prompt('Endereço:', this.selectedEvent.extendedProps['endereco'] || '');
     const novoInicio = prompt('Data/Hora início (YYYY-MM-DD HH:mm):', this.selectedEvent.startStr);
     const novoFim = prompt('Data/Hora término (YYYY-MM-DD HH:mm):', this.selectedEvent.endStr || this.selectedEvent.startStr);
 
@@ -134,8 +134,8 @@ editEvent() {
             this.selectedEvent.setProp('title', eventoAtualizado.title);
             this.selectedEvent.setStart(eventoAtualizado.start);
             this.selectedEvent.setEnd(eventoAtualizado.end);
-            this.selectedEvent.setExtendedProp('description', eventoAtualizado.description);
-            this.selectedEvent.setExtendedProp('address', eventoAtualizado.address);
+            this.selectedEvent.setExtendedProp('descricao', eventoAtualizado.description);
+            this.selectedEvent.setExtendedProp('endereco', eventoAtualizado.address);
           }
 
     
