@@ -1,20 +1,38 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Comentarios } from '../models/comentarios.model';
-
 
 @Injectable({ providedIn: 'root' })
 export class ComentariosService {
-constructor(private http: HttpClient) {}
+  private baseUrl = 'http://localhost:3000';
 
+  constructor(private http: HttpClient) {}
 
-list(limit = 12, offset = 0): Observable<{ items: Comentarios[]; count: number }> {
-return this.http.get<{ items: Comentarios[]; count: number }>(`${this.base}?limit=${limit}&offset=${offset}`);
-}
+  getComentarios(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/comentario`);
+  }
 
+  getComentarioById(id: number | string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/comentario/${id}`);
+  }
 
-create(payload: { mensagem: string}): Observable<Comentarios> {
-return this.http.post<Comentarios>(this.base, payload);
-}
+  getComentariosByUsuario(id_usuario: number | string, token: string | null): Observable<any> {
+    const headers = { 'Authorization': `Bearer ${token}` };
+    return this.http.get(`${this.baseUrl}/comentario/usuario/${id_usuario}`, { headers });
+  }
+
+  postComentario(payload: any, token: string | null): Observable<any> {
+    const headers = { 'Authorization': `Bearer ${token}` };
+    return this.http.post(`${this.baseUrl}/comentario`, payload, { headers });
+  }
+
+  putComentario(id: number | string, payload: any, token: string | null): Observable<any> {
+    const headers = { 'Authorization': `Bearer ${token}` };
+    return this.http.put(`${this.baseUrl}/comentario/${id}`, payload, { headers });
+  }
+
+  deleteComentario(id: number | string, token: string | null): Observable<any> {
+    const headers = { 'Authorization': `Bearer ${token}` };
+    return this.http.delete(`${this.baseUrl}/comentario/${id}`, { headers });
+  }
 }
