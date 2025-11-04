@@ -13,7 +13,7 @@ export interface DashboardChartData {
   providedIn: 'root'
 })
 export class DashboardService {
-  private baseUrl = 'http://localhost:3000/api'; // URL do backend
+  private baseUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient) {}
 
