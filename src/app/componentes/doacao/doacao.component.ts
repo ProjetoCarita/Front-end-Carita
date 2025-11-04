@@ -52,8 +52,8 @@ export class DoacaoComponent {
     this.MercadoPagoService.createPayment(dados).subscribe({
       next: (res) => {
         this.carregando = false;
-        if (res.init_point) {
-          window.open(res.init_point, '_blank'); // Abre o checkout Mercado
+        if (res.sandbox_init_point) {
+          window.open(res.sandbox_init_point, '_blank'); // Abre o checkout Mercado
         } else {
           this.mensagem = 'Erro: link de pagamento não retornado.';
         }
