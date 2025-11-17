@@ -28,12 +28,12 @@ export class AvaliacaoSiteComponent {
 
   onSubmit(): void {
     if (this.AvaliacaoForm.valid) {
-      const idUsuario = Number(localStorage.getItem('idUsuario')); // pega id do usuário logado
+      const idUsuario = Number(localStorage.getItem('userId')); // pega id do usuário logado
       const token = localStorage.getItem('token'); // pega token do login
 
       const payload = {
         mensagem: this.AvaliacaoForm.value.mensagem,
-        id_usuario: idUsuario // ⚠️ usar id_usuario com underline
+        id_usuario: idUsuario 
       };
 
       this.comentariosService.postComentario(payload, token).subscribe({

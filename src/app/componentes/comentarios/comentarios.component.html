@@ -1,10 +1,14 @@
 <section class="comentarios">
   <h2>O que dizem sobre nós</h2>
 
-  <div class="comentarios-container">
+  <div *ngIf="comentarios.length > 0; else semComentarios" class="comentarios-container">
     <div class="comentario-card" *ngFor="let comentario of comentarios">
-      <h3>{{ comentario.usuario }}</h3>
-      <p>{{ comentario.texto }}</p>
+            <p>{{ comentario.mensagem }}</p>
+      <p> {{ comentario.usuario?.email }}</p>
     </div>
   </div>
+
+  <ng-template #semComentarios>
+    <p>Nenhum comentário ainda. Seja o primeiro a comentar!</p>
+  </ng-template>
 </section>
