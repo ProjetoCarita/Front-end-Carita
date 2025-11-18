@@ -1,4 +1,34 @@
-// src/app/dashboard.service.ts
+/* // src/app/dashboard.service.ts
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+// Tipagem dos dados vindos do backend
+export interface DashboardChartData {
+  labels: string[];
+  datasets: Array<{
+    label?: string;
+    data: number[];
+    backgroundColor?: string[]; 
+    borderColor?: string[];
+    [key: string]: any; // permite configs extras do Chart.js
+  }>;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DashboardService {
+  private baseUrl = 'http://localhost:3000'; // raiz do backend
+
+  constructor(private http: HttpClient) {}
+
+  // Requisição GET para o endpoint do dashboard
+  getDashboardData(): Observable<DashboardChartData> {
+    return this.http.get<DashboardChartData>(`${this.baseUrl}/dashboard`);
+  }
+} */
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';

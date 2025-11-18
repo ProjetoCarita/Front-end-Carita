@@ -5,11 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BaseChartDirective } from 'ng2-charts';
 import { Chart, ChartConfiguration, registerables } from 'chart.js';
 import { NgIf } from '@angular/common';
-
-// Serviço que busca dados do backend
 import { DashboardService, DashboardChartData } from './dashboard.service';
 
-// ✅ Registra todos os componentes necessários do Chart.js (sem isso dá erro de "bar is not a registered controller")
 Chart.register(...registerables);
 
 @Component({
@@ -20,11 +17,7 @@ Chart.register(...registerables);
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor(
-    private router: Router,
-    private dashboardService: DashboardService
-  ) {}
+  constructor(private router: Router, private dashboardService: DashboardService) {}
 
   // ======== Logout ========
   logout() {
@@ -63,8 +56,8 @@ export class DashboardComponent implements OnInit {
       {
         label: 'Usuários',
         data: [],
-        backgroundColor: ['#4CAF50', '#F44336'], // verde e vermelho
-        borderWidth: 1,
+        backgroundColor: ['#4CAF50', '#F44336'],
+        borderWidth: 1
       }
     ]
   };
