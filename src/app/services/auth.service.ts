@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 
 interface LoginResponse {
   token: string;
+  id: number;
 }
 
 @Injectable({
@@ -18,7 +19,6 @@ export class AuthService {
   login(email: string, senha: string): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(this.baseUrl, { email, senha });
   }
-
   
   saveToken(token: string) {
     localStorage.setItem('token', token);
@@ -26,6 +26,10 @@ export class AuthService {
 
   getToken(): string | null {
     return localStorage.getItem('token');
+  }
+
+  saveUserId(id: number) {
+    localStorage.setItem('userId', id.toString());
   }
 
 

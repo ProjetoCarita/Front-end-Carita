@@ -4,13 +4,13 @@ import { MapaComponent } from "../mapa/mapa.component";
 import { pontoArrecadacao } from '../../models/pontosArrecadacao.model';
 import { CommonModule } from '@angular/common';
 import { jsPDF } from "jspdf";
-import { CalendarioComponent } from "../calendario/calendario.component";
+import {CalendarioPublicoComponent} from '../calendario-publico/calendario-publico.component';
 
 
 @Component({
   selector: 'app-como-ajudar',
   standalone: true,
-  imports: [ MapaComponent, CommonModule,CalendarioComponent],
+  imports: [ MapaComponent, CommonModule,CalendarioPublicoComponent],
   templateUrl: './como-ajudar.component.html',
 styleUrl: './como-ajudar.component.css'
 })

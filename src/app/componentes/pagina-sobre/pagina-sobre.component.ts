@@ -4,12 +4,13 @@ import { BannerSobreComponent } from '../banner-sobre/banner-sobre.component';
 import { CardSobrecaritaComponent } from '../card-sobrecarita/card-sobrecarita.component';
 import { MissaoComponent } from '../missao/missao.component';
 import { CardCompartilheComponent } from '../card-compartilhe/card-compartilhe.component';
+import { ComentariosComponent } from '../comentarios/comentarios.component';
 
 
 @Component({
   selector: 'app-pagina-sobre',
   standalone: true,
-  imports: [BannerSobreComponent,CardSobrecaritaComponent,MissaoComponent,CardCompartilheComponent,],
+  imports: [BannerSobreComponent,CardSobrecaritaComponent,MissaoComponent,CardCompartilheComponent,ComentariosComponent],
   templateUrl: './pagina-sobre.component.html',
   styleUrl: './pagina-sobre.component.css'
 })

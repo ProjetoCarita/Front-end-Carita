@@ -25,27 +25,36 @@ export class CalendarioComponent implements OnInit {
     locale: 'pt-br',
     selectable: true,
     editable: true,
-    eventClick: this.onEventClick.bind(this), // clique no evento
-    select: this.onDateSelect.bind(this),     // clique em dia
+    eventClick: this.onEventClick.bind(this), 
+    select: this.onDateSelect.bind(this),     
     events: []
   };
 
   events: any[] = [];
-  selectedEvent: any = null; // evento selecionado
+  selectedEvent: any = null; 
 
   ngOnInit(): void {
   this.carregarEventos();
 }
-
-carregarEventos(): void {
+carregarEventos() {
   this.calendarioService.getEventos().subscribe({
-    next: (res: any[]) => {
-      this.events = res;
-      this.calendarOptions.events = [...this.events]; 
+    next: (eventos: any[]) => {
+      
+      this.events = eventos.map(ev => ({
+        id: ev.id,
+        title: ev.title,
+        start: ev.start,
+        end: ev.end,
+        extendedProps: {
+          descricao: ev.description,  
+          endereco: ev.address        
+        }
+      }));
+
+      this.calendarOptions.events = [...this.events];
     },
     error: (err) => {
-      console.error('Erro ao carregar eventos:', err);
-      alert('Erro ao carregar eventos do servidor!');
+      console.error('Erro ao carregar eventos do backend:', err);
     }
   });
 }
@@ -58,8 +67,9 @@ carregarEventos(): void {
       const descricao = prompt('Descrição:');
       const endereco = prompt('Endereço:');
       const start = selectionInfo.startStr;
-      const end = selectionInfo.endStr || selectionInfo.startStr;
-
+    
+      const endInput = prompt('Data/Hora término (YYYY-MM-DD HH:mm):', selectionInfo.endStr || selectionInfo.startStr);
+      const end = endInput || start; 
       const newEvent = { title, description: descricao, address: endereco, start, end };
 
       this.calendarioService.adicionarEvento(newEvent).subscribe({
@@ -99,8 +109,8 @@ carregarEventos(): void {
 editEvent() {
   if (this.selectedEvent) {
     const novoTitulo = prompt('Novo título:', this.selectedEvent.title);
-    const novaDescricao = prompt('Descrição:', this.selectedEvent.extendedProps['description'] || '');
-    const novoEndereco = prompt('Endereço:', this.selectedEvent.extendedProps['address'] || '');
+    const novaDescricao = prompt('Descrição:', this.selectedEvent.extendedProps['descricao'] || '');
+    const novoEndereco = prompt('Endereço:', this.selectedEvent.extendedProps['endereco'] || '');
     const novoInicio = prompt('Data/Hora início (YYYY-MM-DD HH:mm):', this.selectedEvent.startStr);
     const novoFim = prompt('Data/Hora término (YYYY-MM-DD HH:mm):', this.selectedEvent.endStr || this.selectedEvent.startStr);
 
@@ -124,8 +134,8 @@ editEvent() {
             this.selectedEvent.setProp('title', eventoAtualizado.title);
             this.selectedEvent.setStart(eventoAtualizado.start);
             this.selectedEvent.setEnd(eventoAtualizado.end);
-            this.selectedEvent.setExtendedProp('description', eventoAtualizado.description);
-            this.selectedEvent.setExtendedProp('address', eventoAtualizado.address);
+            this.selectedEvent.setExtendedProp('descricao', eventoAtualizado.description);
+            this.selectedEvent.setExtendedProp('endereco', eventoAtualizado.address);
           }
 
     
