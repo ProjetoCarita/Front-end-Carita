@@ -36,9 +36,10 @@ export class CamposLoginComponent {
     this.authService.login(email, senha).subscribe({
       next: (res) => {
         this.authService.saveToken(res.token);
+        this.authService.saveUserId(res.id);
         this.errorMessage = '';
         // Redirecione para a página principal ou dashboard
-        this.router.navigate(['/pagina-preCadastro']); // Altere '/dashboard' para a rota desejada
+        this.router.navigate(['/pagina-preCadastro']); 
         console.log('Login com sucesso, token salvo no localStorage.');
       },
       error: (err) => {
