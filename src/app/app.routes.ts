@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+import { ListaOrganizacoesComponent } from './componentes/lista-organizacoes/lista-organizacoes.component';
+
 import { PaginaSobreComponent } from './componentes/pagina-sobre/pagina-sobre.component';
 import { MainComponent } from './main/main.component';
 import { PaginaConteudoComponent } from './componentes/pagina-conteudo/pagina-conteudo.component';
@@ -22,9 +24,15 @@ import { PaginaPixComponent } from './componentes/pagina-pix/pagina-pix.componen
 import { DadosInstituicaoIdComponent } from './componentes/dados-instituicao-id/dados-instituicao-id.component';
 import { BotaoPagamentoComponent } from './componentes/botaoPagamentos/botaoPagamento.component';
 import { DoacaoComponent } from './componentes/doacao/doacao.component';
-
+import { AvaliacaoSiteComponent } from './componentes/avaliacao-site/avaliacao-site.component';
+import { PaginaAdministradorComponent } from './componentes/pagina-administrador/pagina-administrador.component';
+import { ListaUsuariosComponent } from './componentes/lista-usuarios/lista-usuarios.component';
+import { CalendarioComponent } from './componentes/calendario/calendario.component';
+import { ComentariosComponent } from './componentes/comentarios/comentarios.component';
 export const routes: Routes = [
     {path: '', component: MainComponent },
+    {path: 'lista-organizacoes', component: ListaOrganizacoesComponent },
+
     {path: 'pagina-sobre', component: PaginaSobreComponent },
     {path: 'pagina-conteudo', component: PaginaConteudoComponent },
     {path: 'pagina-comoAjudar', component: PaginaComoajudarComponent },
@@ -39,8 +47,6 @@ export const routes: Routes = [
     {path: 'pagina-RepresentanteParceiros', component: DadosRepresentanteParceiroComponent},
     {path: 'pagina-ongId', component: DadosInstituicaoIdComponent},
     {path: 'payment', component: BotaoPagamentoComponent},
-    
-
     {path: 'pagina-desativarOng', component: DesativarContaComponent},
     {path: 'pagina-desativarParceiro', component: DesativarParceiroComponent},
     {path: 'noticia-fomeVotorantim', component: FomeVotorantimNoticiaComponent},
@@ -50,6 +56,12 @@ export const routes: Routes = [
     { path: 'doacao', component: DoacaoComponent },
     { path: 'pagamento/sucesso', component: DoacaoComponent }, 
     { path: 'pagamento/erro', component: DoacaoComponent },
+    {path: 'pagina-avaliacao', component: AvaliacaoSiteComponent},
+    {path: 'pagina-administrador', component: PaginaAdministradorComponent},
+    {path: 'lista-usuarios', component: ListaUsuariosComponent},
+    {path: 'calendario', component: CalendarioComponent},
+    {path: 'comentarios', component: ComentariosComponent},
+    
 
 
 

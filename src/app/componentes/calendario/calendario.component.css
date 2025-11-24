@@ -2,7 +2,7 @@
 :host ::ng-deep .fc {
   max-width: 500px;
   margin: 2rem auto;
-  background: var(--cor-primaria);
+  background: white;
   border-radius: 12px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
   padding: 1rem;
@@ -67,3 +67,44 @@
   z-index: 1050;
   overflow: auto;
 }
+
+h2 {
+  font-weight: bold;
+  color: var(--cor-textoSecundaria);
+  background-color: var(--cor-primaria);
+  padding: 20px 16px;
+}
+
+.container-dashboard {
+    background-color: var(--cor-primaria);
+    flex-grow: 1;
+
+}
+
+.page-container {
+  display: flex;
+  width: 100%;
+
+  
+  
+}
+
+.sidebar {
+background-color: #f4f4f4;
+padding: 30px;
+width: 30%;
+}
+
+.sidebar-content {
+  text-align: center;
+  
+}
+
+
+.img-usuario{
+    width: 105px;
+    height: 95px;
+    margin-bottom: 20px !important;
+}
+
+

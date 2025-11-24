@@ -5,20 +5,20 @@ import { Observable } from 'rxjs';
 
 interface LoginResponse {
   token: string;
+  id: number;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'https://backend-carita-1.onrender.com/autenticacao'; 
+  private baseUrl = 'http://localhost:3000/autenticacao'; 
 
   constructor(private http: HttpClient) {}
 
   login(email: string, senha: string): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(this.baseUrl, { email, senha });
   }
-
   
   saveToken(token: string) {
     localStorage.setItem('token', token);
@@ -26,6 +26,10 @@ export class AuthService {
 
   getToken(): string | null {
     return localStorage.getItem('token');
+  }
+
+  saveUserId(id: number) {
+    localStorage.setItem('userId', id.toString());
   }
 
 

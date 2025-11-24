@@ -3,15 +3,11 @@ import { RouterOutlet,NavigationEnd,Router } from '@angular/router';
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./componentes/footer/footer.component";
 import { AcessibilidadeComponent } from "./componentes/acessibilidade/acessibilidade.component";
-import { FullCalendarModule } from '@fullcalendar/angular';
-import { CalendarioComponent } from './componentes/calendario/calendario.component';
-import { BotaoPagamentoComponent }  from './componentes/botaoPagamentos/botaoPagamento.component';
-
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, AcessibilidadeComponent, FullCalendarModule, CalendarioComponent,  BotaoPagamentoComponent],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, AcessibilidadeComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -116,20 +112,7 @@ focarElemento(index: number) {
         break;
     }
   }
-}
 
-export class PaymentComponent {
-  productPrice = 99.90;
-  productTitle = 'Produto Premium';
-  productDescription = 'Descrição do produto premium';
 
-  onPaymentSuccess(paymentId: string): void {
-    console.log('Pagamento realizado:', paymentId);
-    alert('Pagamento iniciado com sucesso!');
-  }
 
-  onPaymentError(error: any): void {
-    console.error('Erro:', error);
-    alert('Erro ao iniciar pagamento: ' + error);
-  }
 }
