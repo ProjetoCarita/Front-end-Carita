@@ -1,0 +1,74 @@
+<div tabindex="0" class="container-fluid main-content">
+  <!--Contéudo Pagina-->
+  <div class="page-container">
+    <!--SideBar-->
+    <div class="sidebar">
+      <div class="sidebar-content">
+        <div class="dados-instituição d-flex flex-column align-items-center">
+          <img
+            src="\img\logo.png"
+            alt="Logo"
+            class="img-usuario d-inline-block align-text-top"
+          />
+          <a class="navbar-brand"> Olá,Parceiro! </a>
+        </div>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a
+              routerLink="/pagina-parceiros"
+              class="nav-link active"
+              aria-current="page"
+              >Dados Parceiro</a
+            >
+          </li>
+          <li class="nav-item">
+            <a routerLink="/pagina-RepresentanteParceiros" class="nav-link"
+              >Dados Parceiros Representante</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a routerLink="/pagina-desativarParceiro" class="nav-link"
+              >Desativar</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a routerLink="/doacao" class="nav-link"
+            >Doações</a>
+          </li>
+
+          <li class="nav-item">
+            <a (click)="logout()" class="nav-link" style="cursor: pointer"
+              >Sair</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+<div class="container">
+  <h2>Realize sua doação</h2>
+
+  <div>
+    <label>Instituição:</label>
+    <select [(ngModel)]="instituicaoSelecionada">
+      <option value="">Selecione</option>
+      <option *ngFor="let inst of instituicoes" [value]="inst.nome">
+        {{ inst.nome }} – {{ inst.pix }}
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <label>Valor (R$):</label>
+    <input type="number" [(ngModel)]="valorDoacao" min="1" />
+  </div>
+
+  <button (click)="doar()" [disabled]="carregando">
+    {{ carregando ? 'Processando...' : 'Confirmar Doação' }}
+  </button>
+
+  <p>{{ mensagem }}</p>
+</div>
+
