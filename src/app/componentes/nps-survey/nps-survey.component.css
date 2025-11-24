@@ -1,0 +1,141 @@
+.usuario-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.feedback-section {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 30px 0;
+  border-left: 4px solid #007bff;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  margin: 0;
+  color: #333;
+}
+
+.badge {
+  background: #ff4757;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.nps-container {
+  margin: 20px 0;
+}
+
+.agradecimento-feedback {
+  text-align: center;
+  padding: 30px;
+  background: white;
+  border-radius: 8px;
+  border: 2px dashed #e1e5e9;
+}
+
+.agradecimento-feedback .icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.agradecimento-feedback h4 {
+  margin: 0 0 8px 0;
+  color: #333;
+}
+
+.agradecimento-feedback p {
+  margin: 0 0 16px 0;
+  color: #666;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-link:hover {
+  color: #0056b3;
+}
+
+.actions-section {
+  margin: 20px 0;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+}
+
+.nps-section {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nps-survey {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+}
+
+.nps-survey:not(.modal) {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e1e5e9;
+}
+
+.nps-header {
+  text-align: center;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.nps-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.nps-close:hover {
+  background: #f5f5f5;
+}

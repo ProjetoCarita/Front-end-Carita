@@ -5,17 +5,12 @@ import { ListaComponent } from '../lista/lista.component';
 import { CardDoepixComponent } from '../card-doepix/card-doepix.component';
 import { ParceirosComponent } from '../parceiros/parceiros.component';
 import { FooterComponent } from '../footer/footer.component';
-<<<<<<< HEAD
-import { ComoAjudarComponent } from '../como-ajudar/como-ajudar.component';
-import { MapaComponent } from '../mapa/mapa.component';
-import { DashboardComponent } from '../dashboard/dashboard.component';
-=======
 import { ComoAjudarComponent } from "../como-ajudar/como-ajudar.component";
 import { MapaComponent } from "../mapa/mapa.component";
 import { ComentariosComponent } from '../comentarios/comentarios.component';
+import { DashboardComponent } from '../dashboard/dashboard.component';
 
 
->>>>>>> 2be5452d5dfb2f1e5606ec2cc7ed16dc56839c8a
 
 @Component({
   selector: 'app-pagina-comoajudar',
