@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink, Router } from '@angular/router';
 import { UsuarioService } from '../../services/usuario.service';
-
+import { FormControl } from '@angular/forms';
 
 
 @Component({
@@ -15,6 +15,8 @@ import { UsuarioService } from '../../services/usuario.service';
 })
 export class CamposCadastroComponent {
   myForm: FormGroup;
+  
+ 
 
   errorMessage: string = '';
 

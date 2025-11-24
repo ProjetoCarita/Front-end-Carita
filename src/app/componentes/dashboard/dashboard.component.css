@@ -1,0 +1,101 @@
+/* ======= TÍTULO ======= */
+h2 {
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--cor-primaria);
+  padding: 14px;
+  border-radius: 10px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* ======= CONTAINER GERAL ======= */
+.page-container {
+  display: flex;
+  width: 100%;
+  
+}
+
+.sidebar {
+background-color: #f4f4f4;
+padding: 30px;
+width: 30%;
+}
+
+.sidebar-content {
+  text-align: center;
+  
+}
+
+
+.img-usuario{
+    width: 105px;
+    height: 95px;
+    margin-bottom: 20px !important;
+}
+
+
+
+
+.nav-link {
+  display: block;
+  color: #333;
+  padding: 8px 0;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--cor-primaria);
+  transform: scale(1.02);
+}
+
+/* ======= CONTEÚDO DO DASHBOARD ======= */
+.container-dashboard-grafico {
+  flex: 1;
+  background-color: #fff;
+  padding: 40px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-y: auto;
+}
+
+/* ======= GRÁFICO ======= */
+canvas {
+  width: 50%;
+  max-width: 550px;
+  height: 400px !important;
+  margin-top: 10px;
+}
+
+.chartjs-render-monitor {
+  pointer-events: none !important;
+}
+
+/* ======= RESPONSIVIDADE ======= */
+@media (max-width: 900px) {
+  .page-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+    border-bottom: 2px solid var(--cor-primaria);
+  }
+
+  .container-dashboard-grafico {
+    padding: 20px;
+  }
+
+  canvas {
+    width: 90%;
+    height: 250px !important;
+  }
+}
