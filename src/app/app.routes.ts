@@ -22,12 +22,13 @@ import { AlimentosNoticiasComponent } from './componentes/alimentos-noticias/ali
 import { DoacaoNoticiasComponent } from './componentes/doacao-noticias/doacao-noticias.component';
 import { PaginaPixComponent } from './componentes/pagina-pix/pagina-pix.component';
 import { DadosInstituicaoIdComponent } from './componentes/dados-instituicao-id/dados-instituicao-id.component';
+import { BotaoPagamentoComponent } from './componentes/botaoPagamentos/botaoPagamento.component';
+import { DoacaoComponent } from './componentes/doacao/doacao.component';
 import { AvaliacaoSiteComponent } from './componentes/avaliacao-site/avaliacao-site.component';
 import { PaginaAdministradorComponent } from './componentes/pagina-administrador/pagina-administrador.component';
 import { ListaUsuariosComponent } from './componentes/lista-usuarios/lista-usuarios.component';
 import { CalendarioComponent } from './componentes/calendario/calendario.component';
 import { ComentariosComponent } from './componentes/comentarios/comentarios.component';
-
 export const routes: Routes = [
     {path: '', component: MainComponent },
     {path: 'lista-organizacoes', component: ListaOrganizacoesComponent },
@@ -45,14 +46,16 @@ export const routes: Routes = [
     {path: 'pagina-representante', component: DadosRepresentanteComponent},
     {path: 'pagina-RepresentanteParceiros', component: DadosRepresentanteParceiroComponent},
     {path: 'pagina-ongId', component: DadosInstituicaoIdComponent},
-    
-
+    {path: 'payment', component: BotaoPagamentoComponent},
     {path: 'pagina-desativarOng', component: DesativarContaComponent},
     {path: 'pagina-desativarParceiro', component: DesativarParceiroComponent},
     {path: 'noticia-fomeVotorantim', component: FomeVotorantimNoticiaComponent},
     {path: 'noticia-alimentos', component: AlimentosNoticiasComponent},
     {path: 'noticia-doacao', component: DoacaoNoticiasComponent},
     {path: 'pagina-pix', component: PaginaPixComponent},
+    { path: 'doacao', component: DoacaoComponent },
+    { path: 'pagamento/sucesso', component: DoacaoComponent }, 
+    { path: 'pagamento/erro', component: DoacaoComponent },
     {path: 'pagina-avaliacao', component: AvaliacaoSiteComponent},
     {path: 'pagina-administrador', component: PaginaAdministradorComponent},
     {path: 'lista-usuarios', component: ListaUsuariosComponent},

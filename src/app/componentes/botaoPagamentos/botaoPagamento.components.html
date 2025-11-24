@@ -1,0 +1,9 @@
+<button 
+  (click)="handlePayment()"
+  [disabled]="loading"
+  class="payment-button"
+  [class.loading]="loading">
+  
+  <span *ngIf="!loading">Pagar R$ {{ amount.toFixed(2) }}</span>
+  <span *ngIf="loading">Processando...</span>
+</button>
