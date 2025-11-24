@@ -37,9 +37,16 @@ export class CamposLoginComponent {
       next: (res) => {
         this.authService.saveToken(res.token);
         this.authService.saveUserId(res.id);
+        this.authService.saveRole(res.role);
         this.errorMessage = '';
-        // Redirecione para a página principal ou dashboard
-        this.router.navigate(['/pagina-preCadastro']); 
+
+
+    if (res.role === 'admin') {
+        this.router.navigate(['/dashboard']);
+      } else {
+        this.router.navigate(['/pagina-preCadastro']);
+      }
+
         console.log('Login com sucesso, token salvo no localStorage.');
       },
       error: (err) => {
