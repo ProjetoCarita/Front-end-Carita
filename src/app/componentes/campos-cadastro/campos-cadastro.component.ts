@@ -16,7 +16,7 @@ import { FormControl } from '@angular/forms';
 export class CamposCadastroComponent {
   myForm: FormGroup;
   
-  passwordCtrl = new FormControl('');
+ 
 
   errorMessage: string = '';
 

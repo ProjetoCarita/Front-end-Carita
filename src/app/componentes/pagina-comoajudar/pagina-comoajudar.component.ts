@@ -5,8 +5,10 @@ import { ListaComponent } from '../lista/lista.component';
 import { CardDoepixComponent } from '../card-doepix/card-doepix.component';
 import { ParceirosComponent } from '../parceiros/parceiros.component';
 import { FooterComponent } from '../footer/footer.component';
+
 import { ComoAjudarComponent } from "../como-ajudar/como-ajudar.component";
 import { MapaComponent } from "../mapa/mapa.component";
+
 import { ComentariosComponent } from '../comentarios/comentarios.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 

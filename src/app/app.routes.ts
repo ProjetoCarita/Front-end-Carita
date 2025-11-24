@@ -29,6 +29,10 @@ import { PaginaAdministradorComponent } from './componentes/pagina-administrador
 import { ListaUsuariosComponent } from './componentes/lista-usuarios/lista-usuarios.component';
 import { CalendarioComponent } from './componentes/calendario/calendario.component';
 import { ComentariosComponent } from './componentes/comentarios/comentarios.component';
+
+import {DashboardComponent} from './componentes/dashboard/dashboard.component';
+import { AvaliacaoSiteOngComponent } from './componentes/avaliacao-site ong/avaliacao-siteOng.component';
+
 export const routes: Routes = [
     {path: '', component: MainComponent },
     {path: 'lista-organizacoes', component: ListaOrganizacoesComponent },
@@ -57,10 +61,12 @@ export const routes: Routes = [
     { path: 'pagamento/sucesso', component: DoacaoComponent }, 
     { path: 'pagamento/erro', component: DoacaoComponent },
     {path: 'pagina-avaliacao', component: AvaliacaoSiteComponent},
+    {path: 'pagina-avaliacao-ong', component: AvaliacaoSiteOngComponent},
     {path: 'pagina-administrador', component: PaginaAdministradorComponent},
     {path: 'lista-usuarios', component: ListaUsuariosComponent},
     {path: 'calendario', component: CalendarioComponent},
     {path: 'comentarios', component: ComentariosComponent},
+    {path: 'dashboard', component: DashboardComponent}
     
 
 

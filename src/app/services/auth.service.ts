@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 
 interface LoginResponse {
+  role: string;
   token: string;
   id: number;
 }
@@ -32,6 +33,13 @@ export class AuthService {
     localStorage.setItem('userId', id.toString());
   }
 
+  saveRole(role: string) {
+  localStorage.setItem('role', role);
+}
+
+getRole(): string | null {
+  return localStorage.getItem('role');
+}
 
   logout() {
     localStorage.removeItem('token');

@@ -49,6 +49,12 @@ export class DashboardService {
 
   // Faz requisição GET no backend
   getDashboardData(): Observable<DashboardChartData> {
-    return this.http.get<DashboardChartData>(`${this.baseUrl}/dashboard-data`);
-  }
+  const token = localStorage.getItem('token');
+
+  return this.http.get<DashboardChartData>(`${this.baseUrl}/usuarios/dashboard-data`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+}
 }

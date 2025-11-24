@@ -80,5 +80,8 @@ reativarConta(id: number): Observable<any> {
   return this.http.post(`${this.baseUrl}/usuarios/${id}/reativar`, {});
 }
 
+getDashboardData() {
+  return this.http.get(`${this.baseUrl}/usuarios/dashboard-data`);
+}
 
 }
