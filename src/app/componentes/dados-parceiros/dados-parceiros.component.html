@@ -459,4 +459,31 @@
       </form>
     </div>
   </div>
+  
+  <div class="nps-section" *ngIf="exibirNPS && !npsRespondido">
+  <div class="nps-container">
+    <div class="nps-header">
+      <h3>🎉 Cadastro Realizado com Sucesso!</h3>
+      <p>Antes de finalizar, gostaríamos de saber sua opinião sobre o processo de cadastro:</p>
+      <button class="btn-fechar-nps" (click)="fecharNPS()">×</button>
+    </div>
+    
+    <app-nps-survey 
+      [categoria]="'parceiro_cadastro'"
+      [exibirComoModal]="false"
+      [tituloPersonalizado]="'Como foi sua experiência com o processo de cadastro?'"
+      (closed)="onNPSConcluido()">
+    </app-nps-survey>
+  </div>
+</div>
+
+<!-- Mensagem de agradecimento final -->
+<div class="agradecimento-final" *ngIf="npsRespondido">
+  <div class="agradecimento-content">
+    <div class="icon">✅</div>
+    <h3>Processo Concluído!</h3>
+    <p>Obrigado por se tornar nosso parceiro e pelo seu feedback.</p>
+    <p>Entraremos em contato em breve.</p>
+  </div>
+</div>
 </div>
