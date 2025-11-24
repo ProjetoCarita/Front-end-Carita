@@ -6,11 +6,12 @@ import { ParceirosService } from '../../services/parceiros.service';
 import { pontoArrecadacaoService } from '../../services/pontoArrecadacao.service';
 import { AuthService } from '../../services/auth.service';
 import { jwtDecode } from 'jwt-decode';
+import { NpsSurveyComponent } from '../nps-survey/nps-survey.component';  
 
 @Component({
   selector: 'app-dados-parceiros',
   standalone: true,
-  imports: [RouterLink,ReactiveFormsModule,CommonModule],
+  imports: [RouterLink,ReactiveFormsModule,CommonModule, NpsSurveyComponent],
   templateUrl: './dados-parceiros.component.html',
   styleUrl: './dados-parceiros.component.css'
 })
@@ -20,12 +21,21 @@ export class DadosParceirosComponent  implements OnInit {
 
   formParceiros: FormGroup;
   showAlert = false;
-   userId: number = 0;
+  userId: number = 0;
   tipoParceiro: string = 'option1'; // 'option1' é o padrão (Parceiro Captador)
   private token: string | null;
 
+  // Variáveis para controle do NPS
+  npsRespondido = false;
+  exibirNPS = false;
+  cadastroConcluido = false;
 
-  constructor(private fb: FormBuilder, private parceiroService: ParceirosService,private pontoAradacaoService: pontoArrecadacaoService, private router: Router){
+  constructor(
+    private fb: FormBuilder, 
+    private parceiroService: ParceirosService,
+    private pontoAradacaoService: pontoArrecadacaoService, 
+    private router: Router
+  ){
 
     this.token = localStorage.getItem("token");
   
@@ -50,7 +60,6 @@ export class DadosParceirosComponent  implements OnInit {
       areaAtuacao: ['', Validators.required],
       logo: [null],
       documento: [null],
-    
     });
   }
 
@@ -68,7 +77,6 @@ export class DadosParceirosComponent  implements OnInit {
       },
       error: (err) => {
         console.error("Parceiro não encontrado", err);
-        
       }
     });
   }
@@ -96,51 +104,127 @@ export class DadosParceirosComponent  implements OnInit {
     this.tipoParceiro = parceiro.tipoParceiro; // Ajuste se necessário
   }
 
-onSubmit(): void {
-  if (this.formParceiros.valid) {
-    const tipo = this.tipoParceiro === 'option1' ? 'Captador' : 'Divulgador';
+  onSubmit(): void {
+    if (this.formParceiros.valid) {
+      const tipo = this.tipoParceiro === 'option1' ? 'Captador' : 'Divulgador';
 
-    const parceiroPayload: any = {
-      nome: this.formParceiros.value.nome,
-      cnpj: this.formParceiros.value.cnpj,
-      telefone: this.formParceiros.value.telefone,
-      email: this.formParceiros.value.email,
-      areaAtuacao: this.formParceiros.value.areaAtuacao,
-      tipoParceiro: tipo,
-      idUsuario: this.userId,
-      logo: this.formParceiros.value.logo,
-      documento: this.formParceiros.value.documento,
-    };
-
-    if (tipo === 'Captador') {
-      parceiroPayload.pontoArrecadacao = {
-        logradouro: this.formParceiros.value.logradouro,
-        numero: this.formParceiros.value.numero,
-        bairro: this.formParceiros.value.bairro,
-        cidade: this.formParceiros.value.cidade,
-        estado: this.formParceiros.value.estado,
-        cep: this.formParceiros.value.cep,
-        horarioFuncionamento: this.formParceiros.value.horarioFuncionamento
+      const parceiroPayload: any = {
+        nome: this.formParceiros.value.nome,
+        cnpj: this.formParceiros.value.cnpj,
+        telefone: this.formParceiros.value.telefone,
+        email: this.formParceiros.value.email,
+        areaAtuacao: this.formParceiros.value.areaAtuacao,
+        tipoParceiro: tipo,
+        idUsuario: this.userId,
+        logo: this.formParceiros.value.logo,
+        documento: this.formParceiros.value.documento,
       };
+
+      if (tipo === 'Captador') {
+        parceiroPayload.pontoArrecadacao = {
+          logradouro: this.formParceiros.value.logradouro,
+          numero: this.formParceiros.value.numero,
+          bairro: this.formParceiros.value.bairro,
+          cidade: this.formParceiros.value.cidade,
+          estado: this.formParceiros.value.estado,
+          cep: this.formParceiros.value.cep,
+          horarioFuncionamento: this.formParceiros.value.horarioFuncionamento
+        };
+      }
+
+      this.parceiroService.postParceiros(parceiroPayload, this.token).subscribe({
+        next: () => {
+          this.showAlert = true;
+          this.cadastroConcluido = true;
+          
+          // Mostrar pesquisa NPS após cadastro bem-sucedido
+          this.mostrarPesquisaNPS();
+          
+          // Opcional: resetar o formulário após um tempo
+          setTimeout(() => {
+            this.formParceiros.reset();
+          }, 2000);
+        },
+        error: (err) => {
+          console.error("Erro ao cadastrar parceiro:", err);
+          // Mesmo em caso de erro, pode mostrar o NPS se quiser
+          // this.mostrarPesquisaNPS();
+        }
+      });
     }
-
-    this.parceiroService.postParceiros(parceiroPayload, this.token).subscribe({
-      next: () => {
-        this.showAlert = true;
-        this.formParceiros.reset();
-      },
-      error: (err) => console.error("Erro ao cadastrar parceiro:", err)
-    });
   }
-}
 
+  // Método para mostrar a pesquisa NPS
+  mostrarPesquisaNPS() {
+    this.exibirNPS = true;
+  }
+
+  // Quando o NPS for concluído
+  onNPSConcluido() {
+    this.npsRespondido = true;
+    this.exibirNPS = false;
+    
+    // Opcional: esconder a mensagem de agradecimento após alguns segundos
+    setTimeout(() => {
+      this.npsRespondido = false;
+      this.cadastroConcluido = false;
+      this.showAlert = false;
+    }, 5000);
+  }
+
+  // Fechar o NPS manualmente (se o usuário quiser pular)
+  fecharNPS() {
+    this.exibirNPS = false;
+    this.npsRespondido = true;
+    
+    setTimeout(() => {
+      this.npsRespondido = false;
+      this.cadastroConcluido = false;
+      this.showAlert = false;
+    }, 3000);
+  }
 
   onTipoParceiroChange(tipo: string) {
     this.tipoParceiro = tipo;
   }
 
-   logout() {
+  logout() {
     localStorage.removeItem('token'); // ou sessionStorage.clear();
     this.router.navigate(['/pagina-login']); // redireciona para a página de login
+  }
+
+  // Métodos auxiliares para formatação (se necessário)
+  formatarCNPJ(event: any) {
+    let value = event.target.value.replace(/\D/g, '');
+    
+    if (value.length <= 14) {
+      value = value.replace(/^(\d{2})(\d)/, '$1.$2');
+      value = value.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
+      value = value.replace(/\.(\d{3})(\d)/, '.$1/$2');
+      value = value.replace(/(\d{4})(\d)/, '$1-$2');
+    }
+    
+    this.formParceiros.patchValue({ cnpj: value });
+  }
+
+  formatarTelefone(event: any) {
+    let value = event.target.value.replace(/\D/g, '');
+    
+    if (value.length <= 11) {
+      value = value.replace(/^(\d{2})(\d)/, '($1) $2');
+      value = value.replace(/(\d{5})(\d)/, '$1-$2');
+    }
+    
+    this.formParceiros.patchValue({ telefone: value });
+  }
+
+  formatarCEP(event: any) {
+    let value = event.target.value.replace(/\D/g, '');
+    
+    if (value.length <= 8) {
+      value = value.replace(/^(\d{5})(\d)/, '$1-$2');
+    }
+    
+    this.formParceiros.patchValue({ cep: value });
   }
 }

@@ -4,6 +4,7 @@ import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./componentes/footer/footer.component";
 import { AcessibilidadeComponent } from "./componentes/acessibilidade/acessibilidade.component";
 
+
 @Component({
   selector: 'app-root',
   standalone: true,

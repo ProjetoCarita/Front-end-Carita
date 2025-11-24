@@ -1,0 +1,60 @@
+<div class="nps-survey" [class.modal]="exibirComoModal">
+  <div class="nps-header">
+    <button *ngIf="exibirComoModal" class="nps-close" (click)="fechar()">×</button>
+    <h3>{{ getPergunta() }}</h3>
+    <p *ngIf="score === null">Classifique de 0 (não recomendaria) a 10 (recomendaria fortemente)</p>
+  </div>
+
+  <div class="nps-scores" *ngIf="score === null">
+    <button
+      *ngFor="let score of scores"
+      type="button"
+      class="nps-score"
+      [class]="getScoreClass(score)"
+      (click)="selecionarScore(score)"
+    >
+      {{ score }}
+    </button>
+  </div>
+
+  <div class="nps-labels" *ngIf="score === null">
+    <span>Pouco provável</span>
+    <span>Muito provável</span>
+  </div>
+
+  <div class="nps-comment" *ngIf="score !== null">
+    <textarea
+      [(ngModel)]="comentario"
+      placeholder="Compartilhe seus pensamentos (opcional)..."
+      rows="4"
+    ></textarea>
+  </div>
+
+  <div class="nps-actions" *ngIf="score !== null">
+    <button
+      type="button"
+      class="nps-btn nps-btn-secondary"
+      (click)="score = null; comentario = ''"
+    >
+      Voltar
+    </button>
+    <button
+      type="button"
+      class="nps-btn nps-btn-primary"
+      (click)="enviar()"
+      [disabled]="isLoading"
+    >
+      {{ isLoading ? 'Enviando...' : 'Enviar Resposta' }}
+    </button>
+  </div>
+
+  <div class="nps-error" *ngIf="error">
+    {{ error }}
+  </div>
+
+  <div class="nps-success" *ngIf="isSubmitted">
+    <div class="nps-success-icon">🎉</div>
+    <h3>Obrigado pelo seu feedback!</h3>
+    <p>Sua opinião é muito importante para nós.</p>
+  </div>
+</div>
