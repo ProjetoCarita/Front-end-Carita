@@ -149,6 +149,8 @@ jobs:
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
+        env:
+          NEW_VERSION: ${{ env.NEW_VERSION }}
         with:
             context: .
             file: ./Dockerfile
