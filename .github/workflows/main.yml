@@ -68,7 +68,7 @@ jobs:
               echo "current_version=$VERSION"
               echo "new_version=$VERSION"
             } >> "$GITHUB_OUTPUT"
-            echo "NEW_VERSION=$VERSION" >> "$GITHUB_ENV"
+            echo "NEW_VERSION=${NEW_VERSION:-$CURRENT_VERSION}" >> $GITHUB_ENV
             exit 0
           fi
 
