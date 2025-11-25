@@ -2,18 +2,22 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import emailjs from 'emailjs-com';
- 
+import { NpsSurveyComponent } from '../nps-survey/nps-survey.component'; 
+
 @Component({
   selector: 'app-contato',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, NpsSurveyComponent],
   templateUrl: './contato.component.html',
   styleUrls: ['./contato.component.css']
 })
 export class ContatoComponent implements OnInit {
   ContatoForm: FormGroup;
   showAlert = false;
- 
+
+  // Variáveis para controle do NPS - SEMPRE VISÍVEL
+  npsRespondido = false;
+
   constructor(private fb: FormBuilder) {
     this.ContatoForm = this.fb.group({
       nome: ['', [Validators.required, Validators.minLength(2)]],
@@ -45,6 +49,7 @@ export class ContatoComponent implements OnInit {
  
         console.log("Mensagem enviada com sucesso:", response);
         alert("Mensagem enviada com sucesso!"); // Mensagem de sucesso
+        
         this.ContatoForm.reset(); // Reseta o formulário após o envio
       } catch (error) {
         console.error("Erro ao enviar:", error);
@@ -55,5 +60,17 @@ export class ContatoComponent implements OnInit {
     } else {
       console.log('Formulário inválido');
     }
+  }
+
+  // === FUNÇÕES DO NPS (SIMPLIFICADAS) ===
+  
+  // Quando o NPS for concluído
+  onNPSConcluido() {
+    this.npsRespondido = true;
+    
+    // Opcional: esconder após alguns segundos
+    setTimeout(() => {
+      this.npsRespondido = false;
+    }, 3000);
   }
 }

@@ -5,13 +5,12 @@ import { CommonModule } from '@angular/common';
 import { ParceirosService } from '../../services/parceiros.service';
 import { pontoArrecadacaoService } from '../../services/pontoArrecadacao.service';
 import { AuthService } from '../../services/auth.service';
-import { jwtDecode } from 'jwt-decode';
-import { NpsSurveyComponent } from '../nps-survey/nps-survey.component';  
+import { jwtDecode } from 'jwt-decode'; 
 
 @Component({
   selector: 'app-dados-parceiros',
   standalone: true,
-  imports: [RouterLink,ReactiveFormsModule,CommonModule, NpsSurveyComponent],
+  imports: [RouterLink,ReactiveFormsModule,CommonModule,],
   templateUrl: './dados-parceiros.component.html',
   styleUrl: './dados-parceiros.component.css'
 })
@@ -24,11 +23,8 @@ export class DadosParceirosComponent  implements OnInit {
   userId: number = 0;
   tipoParceiro: string = 'option1'; // 'option1' é o padrão (Parceiro Captador)
   private token: string | null;
+  cadastroConcluido: boolean | undefined;
 
-  // Variáveis para controle do NPS
-  npsRespondido = false;
-  exibirNPS = false;
-  cadastroConcluido = false;
 
   constructor(
     private fb: FormBuilder, 
@@ -135,10 +131,7 @@ export class DadosParceirosComponent  implements OnInit {
       this.parceiroService.postParceiros(parceiroPayload, this.token).subscribe({
         next: () => {
           this.showAlert = true;
-          this.cadastroConcluido = true;
-          
-          // Mostrar pesquisa NPS após cadastro bem-sucedido
-          this.mostrarPesquisaNPS();
+          this.cadastroConcluido = true
           
           // Opcional: resetar o formulário após um tempo
           setTimeout(() => {
@@ -152,36 +145,6 @@ export class DadosParceirosComponent  implements OnInit {
         }
       });
     }
-  }
-
-  // Método para mostrar a pesquisa NPS
-  mostrarPesquisaNPS() {
-    this.exibirNPS = true;
-  }
-
-  // Quando o NPS for concluído
-  onNPSConcluido() {
-    this.npsRespondido = true;
-    this.exibirNPS = false;
-    
-    // Opcional: esconder a mensagem de agradecimento após alguns segundos
-    setTimeout(() => {
-      this.npsRespondido = false;
-      this.cadastroConcluido = false;
-      this.showAlert = false;
-    }, 5000);
-  }
-
-  // Fechar o NPS manualmente (se o usuário quiser pular)
-  fecharNPS() {
-    this.exibirNPS = false;
-    this.npsRespondido = true;
-    
-    setTimeout(() => {
-      this.npsRespondido = false;
-      this.cadastroConcluido = false;
-      this.showAlert = false;
-    }, 3000);
   }
 
   onTipoParceiroChange(tipo: string) {

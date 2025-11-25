@@ -8,16 +8,6 @@ export interface NPSResposta {
   categoria?: string;
 }
 
-export interface NPSEstatisticas {
-  nps: number;
-  totalRespostas: number;
-  promotores: number;
-  neutros: number;
-  detratores: number;
-  pontuacaoMedia: number;
-  distribuicao: number[];
-}
-
 @Injectable({
   providedIn: 'root'
 })
@@ -28,14 +18,5 @@ export class NpsService {
 
   enviarResposta(resposta: NPSResposta): Observable<any> {
     return this.http.post(`${this.apiUrl}/respostas`, resposta);
-  }
-
-  obterEstatisticas(dataInicio?: string, dataFim?: string, categoria?: string): Observable<NPSEstatisticas> {
-    let params: any = {};
-    if (dataInicio) params.dataInicio = dataInicio;
-    if (dataFim) params.dataFim = dataFim;
-    if (categoria) params.categoria = categoria;
-
-    return this.http.get<NPSEstatisticas>(`${this.apiUrl}/estatisticas`, { params });
   }
 }

@@ -1,9 +1,11 @@
 .body{
     background-color: #F9C89B;
     width: 100%;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     padding: 80px 0px;
+    display: flex;
+    flex-direction: column;
 }
 
 .logoForm{
@@ -13,7 +15,6 @@
 form {
     max-width: 600px;
     width: 100%;
-    padding-right: 80px;
 }
 
 h1{
@@ -62,4 +63,201 @@ form button:hover {
 .alert {
   background-color: var(--cor-secundaria);
   color: var(--cor-textoAlternativo);
+}
+
+/* ===== ESTILOS DO NPS ===== */
+
+/* Container do NPS no componente de contato */
+.nps-container {
+  margin-top: 40px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.nps-card {
+  overflow: hidden;
+  border: none;
+}
+
+.nps-header {
+  background: #F9C89B;
+  color: #522916;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #522916;
+}
+
+.nps-header h3 {
+  margin: 0;
+  font-size: 44px;
+  font-weight: bold;
+  color: black;
+}
+
+/* Estilos para o conteúdo do NPS */
+.nps-body {
+  padding: 25px;
+}
+
+.nps-question {
+  color: #522916;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 25px;
+  line-height: 1.4;
+}
+
+.nps-scores-wrapper {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.score-labels-top {
+  margin-bottom: 15px;
+}
+
+.score-labels-top span {
+  font-size: 1rem;
+  color: #522916;
+  font-weight: bold;
+}
+
+.scores-grid {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.nps-score-btn {
+  width: 45px;
+  height: 45px;
+  border: 2px solid #522916;
+  background: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nps-score-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* CORES ESPECÍFICAS PARA CADA SCORE */
+/* 0-3: Vermelho */
+.nps-score-btn.score-0,
+.nps-score-btn.score-1,
+.nps-score-btn.score-2,
+.nps-score-btn.score-3 {
+  background: #e74c3c;
+  color: white;
+  border-color: #e74c3c;
+}
+
+/* 4-6: Amarelo */
+.nps-score-btn.score-4,
+.nps-score-btn.score-5,
+.nps-score-btn.score-6 {
+  background: #f39c12;
+  color: white;
+  border-color: #f39c12;
+}
+
+/* 7-10: Verde */
+.nps-score-btn.score-7,
+.nps-score-btn.score-8,
+.nps-score-btn.score-9,
+.nps-score-btn.score-10 {
+  background: #2ecc71;
+  color: white;
+  border-color: #2ecc71;
+}
+
+/* Estilo quando selecionado */
+.nps-score-btn.selected {
+  transform: scale(1.15);
+  font-weight: bold;
+  box-shadow: 0 0 0 3px #522916;
+}
+
+.score-labels-bottom {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: #522916;
+  font-weight: bold;
+}
+
+.score-label {
+  width: 45px;
+  text-align: center;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  text-align: center;
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+.nps-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-nps-submit {
+  background: #522916;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-nps-submit:hover:not(:disabled) {
+  background: #3a1d0f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-nps-submit:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.success-message {
+  background: #2ecc71;
+  color: white;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.success-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.success-icon {
+  font-size: 1.5rem;
+  font-weight: bold;
 }

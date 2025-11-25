@@ -1,12 +1,12 @@
-import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core'; 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NpsService } from '../../services/nps.service';
 
 @Component({
   selector: 'app-nps-survey',
-  standalone: true, // Componente standalone
-  imports: [CommonModule, FormsModule], // Importa módulos necessários
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './nps-survey.component.html',
   styleUrls: ['./nps-survey.component.css']
 })
@@ -17,7 +17,6 @@ export class NpsSurveyComponent {
   @Input() tituloPersonalizado?: string;
 
   score: number | null = null;
-  comentario = '';
   isSubmitted = false;
   isLoading = false;
   error = '';
@@ -31,32 +30,13 @@ export class NpsSurveyComponent {
     this.error = '';
   }
 
-  getScoreClass(score: number): string {
-    if (this.score === score) {
-      if (score <= 6) return 'selected detractor';
-      if (score <= 8) return 'selected passive';
-      return 'selected promoter';
-    }
-    return '';
-  }
-
-  getPergunta(): string {
-    if (this.tituloPersonalizado) return this.tituloPersonalizado;
-    
-    if (this.score === null) return 'Qual a probabilidade de você nos recomendar a um amigo ou colega?';
-    
-    if (this.score <= 6) {
-      return 'O que podemos fazer para melhorar?';
-    } else if (this.score <= 8) {
-      return 'O que faria você nos dar uma nota maior?';
-    } else {
-      return 'O que mais você gosta no nosso produto/serviço?';
-    }
+  isScoreSelected(scoreValue: number): boolean {
+    return this.score === scoreValue;
   }
 
   async enviar(): Promise<void> {
     if (this.score === null) {
-      this.error = 'Por favor, selecione uma nota';
+      this.error = 'Por favor, selecione uma nota na escala NPS';
       return;
     }
 
@@ -66,7 +46,7 @@ export class NpsSurveyComponent {
     try {
       await this.npsService.enviarResposta({
         score: this.score,
-        comentario: this.comentario,
+        comentario: 'Feedback do formulário de contato',
         categoria: this.categoria
       }).toPromise();
 
@@ -77,7 +57,7 @@ export class NpsSurveyComponent {
       }, 2000);
 
     } catch (error) {
-      this.error = 'Erro ao enviar resposta. Tente novamente.';
+      this.error = 'Erro ao enviar avaliação. Tente novamente.';
       console.error('Erro NPS:', error);
     } finally {
       this.isLoading = false;
