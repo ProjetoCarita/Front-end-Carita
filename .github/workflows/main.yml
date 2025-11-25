@@ -68,7 +68,7 @@ jobs:
               echo "current_version=$VERSION"
               echo "new_version=$VERSION"
             } >> "$GITHUB_OUTPUT"
-            echo "NEW_VERSION=$VERSION" >> "$GITHUB_ENV"
+            echo "NEW_VERSION=$VERSION" >> $GITHUB_ENV
             exit 0
           fi
 
@@ -144,16 +144,20 @@ jobs:
         run: |
           set -euo pipefail
           npm version "${NEW_VERSION}" --no-git-tag-version
+          
+      - run: echo "DEBUG → NEW_VERSION='$NEW_VERSION'"
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
+        env:
+          NEW_VERSION: ${{ env.NEW_VERSION }}
         with:
             context: .
             file: ./Dockerfile
             push: true
             tags: |
               projetocarita/carita_front:latest
-              projetocarita/carita_front:$NEW_VERSION
+              projetocarita/carita_front:${{ env.NEW_VERSION }}
           
       - name: Commit e push package/tag
         if: steps.version.outputs.should_deploy == 'true' && github.ref == 'refs/heads/develop'
