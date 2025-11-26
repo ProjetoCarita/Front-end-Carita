@@ -160,7 +160,7 @@ jobs:
               projetocarita/carita_front:${{ env.NEW_VERSION }}
           
       - name: Commit e push package/tag
-        if: steps.version.outputs.should_deploy == 'true' && github.ref == 'refs/heads/develop'
+        if: steps.version.outputs.should_deploy == 'true' && github.ref == 'refs/heads/main'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
         run: |
@@ -182,6 +182,8 @@ jobs:
 
           # Push do commit para main
           git push origin HEAD:main
+
+          git push origin develop
 
           # Push da tag (se existir localmente)
           if git rev-parse "v${NEW_VERSION}" >/dev/null 2>&1; then
