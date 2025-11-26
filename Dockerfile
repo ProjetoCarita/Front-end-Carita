@@ -1,8 +1,6 @@
 # ...existing code...
 FROM node:20-alpine AS build
 
-RUN apk add --no-cache python3 g++ make
-
 WORKDIR /app
 
 COPY package*.json ./
