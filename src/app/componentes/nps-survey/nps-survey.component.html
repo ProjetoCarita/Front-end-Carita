@@ -1,57 +1,52 @@
 <div class="nps-survey-content">
-  
-  <!-- Seção NPS -->
-  <div class="nps-section" *ngIf="!isSubmitted">
-    <h4 class="nps-question">
-      {{ tituloPersonalizado || 'EM UMA ESCALA DE 0 A 10, O QUANTO VOCÊ INDICARIA O NOSSO SITE PARA UM AMIGO OU COLEGA?' }}
-    </h4>
-    
-    <div class="nps-scores-wrapper">
-      <div class="score-labels-top"></div>
-      
-    <div class="scores-grid">
-      <button
-        *ngFor="let score of scores"
-        type="button"
-        class="nps-score-btn"
+  <div class="nps-container">
+    <div class="nps-card">
 
-        [ngClass]="[
-          'score-' + score,
-          isScoreSelected(score) ? 'selected' : ''
-        ]"
+      <!-- Área NPS -->
+      <div class="nps-section" *ngIf="!isSubmitted">
+        <h4 class="nps-question">
+          EM UMA ESCALA DE 0 A 10, O QUANTO VOCÊ INDICARIA O NOSSO SITE?
+        </h4>
 
-        (click)="selecionarScore(score)">
-        {{ score }}
-      </button>
-    </div>
-      
-      <div class="score-labels-bottom">
-        <span *ngFor="let score of scores" class="score-label">{{ score }}</span>
+        <div class="nps-scores-wrapper">
+          <div class="scores-grid">
+            <button
+              *ngFor="let score of scores"
+              type="button"
+              class="nps-score-btn"
+              [ngClass]="[
+                'score-' + score,
+                isScoreSelected(score) ? 'selected' : ''
+              ]"
+              (click)="selecionarScore(score)">
+              {{ score }}
+            </button>
+          </div>
+        </div>
+
+        <div class="error-message" *ngIf="error">
+          {{ error }}
+        </div>
+
+        <div class="nps-actions">
+          <button
+            type="button"
+            class="btn-nps-submit"
+            (click)="enviar()"
+            [disabled]="isLoading || score === null">
+            {{ isLoading ? 'Enviando...' : 'Enviar' }}
+          </button>
+        </div>
       </div>
-    </div>
 
-    <!-- Mensagem de erro -->
-    <div class="error-message" *ngIf="error">
-      {{ error }}
-    </div>
+      <!-- Sucesso -->
+      <div class="success-message" *ngIf="isSubmitted">
+        <div class="success-content">
+          <span class="success-icon">✓</span>
+          <p>Obrigada! Seu feedback nos ajuda a melhorar 💛</p>
+        </div>
+      </div>
 
-    <!-- Botão de enviar -->
-    <div class="nps-actions">
-      <button
-        type="button"
-        class="btn-nps-submit"
-        (click)="enviar()"
-        [disabled]="isLoading || score === null">
-        {{ isLoading ? 'Enviando...' : 'Enviar Avaliação' }}
-      </button>
-    </div>
-  </div>
-
-  <!-- Mensagem de sucesso -->
-  <div class="success-message" *ngIf="isSubmitted">
-    <div class="success-content">
-      <span class="success-icon">✓</span>
-      <p>Avaliação enviada com sucesso!</p>
     </div>
   </div>
 </div>
