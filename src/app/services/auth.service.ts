@@ -13,7 +13,7 @@ interface LoginResponse {
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:3000/autenticacao'; 
+  private baseUrl = 'https://backend-carita-1.onrender.com/autenticacao'; 
 
   constructor(private http: HttpClient) {}
 

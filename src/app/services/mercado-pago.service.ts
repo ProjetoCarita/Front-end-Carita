@@ -27,7 +27,7 @@ export interface PaymentData {
 })
 export class MercadoPagoService {
   // Altere a URL conforme o backend
-  private readonly apiUrl = 'http://localhost:3000/api/payments';
+  private readonly apiUrl = 'https://backend-carita-1.onrender.com/api/payments';
 
   constructor(private http: HttpClient) {}
 

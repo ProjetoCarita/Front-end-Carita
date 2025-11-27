@@ -18,7 +18,7 @@ export interface Evento {
 })
 
 export class CalendarioService {
-  private apiUrl = 'http://localhost:3000/eventos';
+  private apiUrl = 'https://backend-carita-1.onrender.com/eventos';
 
   constructor(private http: HttpClient) {}
 
