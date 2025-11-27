@@ -43,7 +43,7 @@ export interface DashboardChartData {
   providedIn: 'root'
 })
 export class DashboardService {
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'https://backend-carita-1.onrender.com';
 
   constructor(private http: HttpClient) {}
 
