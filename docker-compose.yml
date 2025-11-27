@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      # 👇 Se o backend estiver em uma pasta ao lado do front, tipo ../backend
+      # ajuste esse caminho para onde REALMENTE está o código do backend
+      context: ../BackendCarita/Backend-Carita-main
+      dockerfile: Dockerfile
+    container_name: carita_backend
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      # ajuste aqui conforme seu backend usa de verdade:
+      DB_HOST: host.docker.internal   # se o banco estiver rodando na sua máquina
+      DB_USER: root
+      DB_PASS: password
+      DB_NAME: carita
+    restart: always
+
+  frontend:
+    build:
+      # 👇 Como o docker-compose está no repositório do front,
+      # normalmente o Dockerfile do front está na raiz desse projeto
+      context: ../Front-End-Carita
+      dockerfile: Dockerfile
+    container_name: carita_frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+    restart: always
