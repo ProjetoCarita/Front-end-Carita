@@ -12,7 +12,7 @@ export interface NPSResposta {
   providedIn: 'root'
 })
 export class NpsService {
-  private apiUrl = 'http://localhost:3000/api/nps';
+  private apiUrl = 'https://backend-carita-1.onrender.com/api/nps';
 
   constructor(private http: HttpClient) { }
 

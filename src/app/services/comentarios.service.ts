@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class ComentariosService {
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'https://backend-carita-1.onrender.com';
 
   constructor(private http: HttpClient) {}
 
