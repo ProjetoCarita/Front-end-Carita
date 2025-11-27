@@ -177,7 +177,7 @@ Nosso público-alvo é composto por pessoas físicas engajadas com causas sociai
       </td>
     </tr>
     <tr>
-      <td>Mayara Barros</td>
+      <td>Mayara Souza Barros</td>
       <td>Product Owner</td>
       <td>
       <a href="https://github.com/Mayarasb" target="_blank">
