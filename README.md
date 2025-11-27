@@ -37,8 +37,6 @@ Nosso público-alvo é composto por pessoas físicas engajadas com causas sociai
 <img width="1688" height="548" alt="451606484-642b0e1c-a379-44f7-9953-eed1dcb629d3" src="https://github.com/user-attachments/assets/dcc4733a-e59d-41fa-9df9-129c1ac5df0f" />
 
 
-
-
 ## 📅 ENTREGA DAS SPRINTS
 
 <table>
@@ -50,65 +48,90 @@ Nosso público-alvo é composto por pessoas físicas engajadas com causas sociai
   </tr>
   <tr>
     <td>Sprint 1</td>
-    <td>01/02 - 28/02</td>
-    <td>Levantamento dos novos requisitos e itens que irão ser adicionados</td>
+    <td>04/08 - 31/08</td>
+    <td>Levantamento das novas features e planejamento do projeto.</td>
     <td>✅ Concluído</td>
   </tr>
   <tr>
     <td>Sprint 2</td>
-    <td>01/03 - 31/03</td>
-    <td>Criação do Back-End e detalhamento das tarefas</td>
+    <td>01/09 - 30/09</td>
+    <td>Implementação das features 1,2,3 e 4. Inicio da documentação geral.</td>
     <td>✅ Concluído</td>
   </tr>
   <tr>
     <td>Sprint 3</td>
-    <td>01/04 - 30/04</td>
-    <td>Finalização do Back-End e início da integração</td>
+    <td>01/10 - 31/10</td>
+    <td>Implementação das features 5,6,7 e 8. Inicio da documentação Docker e continuidade da documentação geral.</td>
     <td>✅ Concluído</td>
   </tr>
   <tr>
     <td>Sprint 4</td>
-    <td>01/05 - 31/05</td>
-    <td>Alinhamento e fase de teste para completar integração e complemento de documentação</td>
-    <td>✅ Concluído</td>
-  </tr>
-  <tr>
-    <td>Sprint 5</td>
-    <td>01/06 - 24/06</td>
-    <td>Fase de teste final, documentação pronta e projeto integrado e funcionando</td>
+    <td>01/11 - 26/11</td>
+    <td>Implementação das features 9 e 10. Alinhamento final da documentação e conclusao do docker.</td>
     <td>✅ Concluído</td>
   </tr>
 </table>
 
-## 💻🖥️ DEMONSTRAÇÃO DAS TELAS
-<img width="1361" height="1803" alt="447336903-5e7631a4-54b0-446b-80dc-50be568c9146" src="https://github.com/user-attachments/assets/39569c63-e3a9-4cf5-9659-22273cd40d14 " />
+## 🖥️📚 INTEGRAÇÕES FEITAS NO SEMESTRE
 
-<img width="1360" height="1722" alt="447337134-af16061e-28b5-412c-b4a7-686ee5e3cd39" src="https://github.com/user-attachments/assets/1bb02bbf-925f-4a95-abca-3690e92169eb " />
-
-<img width="1361" height="1745" alt="447337192-e6012e95-04c6-4970-a4bf-9097630c20ab" src="https://github.com/user-attachments/assets/9d32f08d-b2bb-4169-aec1-a5bd706889a9" />
-
-<img width="1360" height="800" alt="447337168-70e376ae-32ff-458e-89d7-ffd256406994" src="https://github.com/user-attachments/assets/d3cc7466-dd87-4dbf-8e25-4dff3fbd47c3" />
-
-<img width="1360" height="919" alt="447337151-a5b6c699-2bcd-4f2b-9333-863fc28d5b92" src="https://github.com/user-attachments/assets/79d753d8-ed04-431e-bc22-b2473b42a466" />
-
-<img width="1360" height="919" alt="447338335-a632e9a5-3ba6-4e5f-bb7b-3b06bd0bbe89" src="https://github.com/user-attachments/assets/5ebba238-d7dc-4b7d-a456-eb033bbe6318" />
-
-
-## 📅 GERENCIAMENTO DE CRONOGRAMA 
-![447335690-b5f3b9ca-f41f-40b5-8606-38eb6485759b](https://github.com/user-attachments/assets/9c0f0aa2-63f5-4fcf-931d-796a74a6ff4e)
-
-
-## 📚 BACKLOG
-<img width="1366" height="1765" alt="448613876-26d2ce94-2389-4c59-ba8a-9772847a4aeb (1)" src="https://github.com/user-attachments/assets/bdace696-c2ad-4c33-a688-1bd6d22c78da" />
-
+<table>
+<tr>
+    <td>Feature 1</td>
+    <td>Geolocalização e Mapas</td>
+    <td>✅ Concluído</td>
+  </tr>
+<tr>
+    <td>Feature 2</td>
+    <td>Integração com Excel</td>
+    <td>✅ Concluído</td>
+  </tr>
+<tr>
+    <td>Feature 3</td>
+    <td>E-mail Automatizado</td>
+    <td>✅ Concluído</td>
+  </tr>
+<tr>
+    <td>Feature 4</td>
+    <td>Integração com calendário</td>
+    <td>✅ Concluído</td>
+  </tr>
+<tr>
+    <td>Feature 5</td>
+    <td>Notificação em tempo real</td>
+    <td>✅ Concluído</td>
+  </tr>
+<tr>
+    <td>Feature 6</td>
+    <td>Integração com PDF</td>
+    <td>✅ Concluído</td>
+  </tr>
+<tr>
+    <td>Feature 7</td>
+    <td>Upload de arquivos</td>
+    <td>✅ Concluído</td>
+  </tr>
+<tr>
+    <td>Feature 8</td>
+    <td>Integração com gráfco</td>
+    <td>✅ Concluído</td>
+  </tr>
+<tr>
+    <td>Feature 9</td>
+    <td>Comentários e avaliações</td>
+    <td>✅ Concluído</td>
+  </tr>
+<tr>
+    <td>Feature 10</td>
+    <td>API de Pagamento</td>
+    <td>✅ Concluído</td>
+  </tr>
+</table>
 
 ## 🖥️ PROTÓTIPO E DOCUMENTAÇÃO
 
 > 🔗 **Links das documentações** 
 
-> - Documentação geral: [clique aqui para acessar]()
-> - Front-End: [clique aqui para acessar](https://github.com/ProjetoCarita/Front-End-Carita)
-> - Back-End: [clique aqui para acessar](https://github.com/ProjetoCarita/Backend-carita.)
+> - Documentação UX: [clique aqui para acessar](https://drive.google.com/file/d/1aa7kugYMZgn4dyf88MkoAhpA5oYS-klz/view?usp=drive_link)
 
 ## 🛠️ TECNOLOGIAS UTILIZADAS
 
@@ -126,8 +149,8 @@ Nosso público-alvo é composto por pessoas físicas engajadas com causas sociai
   <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" alt="Badge Figma"/>
   <img src="https://img.shields.io/badge/BrModelo-005FAD?style=for-the-badge&logo=databricks&logoColor=white" alt="Badge BrModelo"/>
   <img src="https://img.shields.io/badge/Visual%20Studio%20Code-0078D4?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Badge Visual Studio Code"/>
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Badge Docker"/>
 </p>
-
 
 ## 👥 EQUIPE
 
@@ -171,13 +194,13 @@ Nosso público-alvo é composto por pessoas físicas engajadas com causas sociai
       <td>Guilherme Piva</td>
       <td>Scrum Master</td>
       <td>
-        <a href="https://github.com/Mayarasb" target="_blank">
+        <a href="https://github.com/guipiva" target="_blank">
           <img src="https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Mayara Barros">
         </a>
       </td>
     </tr>
     <tr>
-      <td>Mayara Souza Barros</td>
+      <td>Mayara Barros</td>
       <td>Product Owner</td>
       <td>
       <a href="https://github.com/Mayarasb" target="_blank">
@@ -203,8 +226,6 @@ Nosso público-alvo é composto por pessoas físicas engajadas com causas sociai
 ```http
 POST    /auth                  # Autenticar usuário e gerar token JWT
 ```
-
-
 
 ### **ORGANIZAÇÃO**
 ```http
@@ -299,6 +320,126 @@ npm start
 # Ou rodar em produção
 npm run build
 npm run serve:ssr:Projeto-carita
+```
+### Back-end Docker
+```bash
+
+  projetocarita/carita 
+
+  docker.compose.yml
+
+  código:
+
+  version: '3.8'
+
+  services:
+    backend:
+      build:
+        context: ./backend
+        dockerfile: Dockerfile
+      container_name: backend_carita
+      ports:
+        
+  "3000:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000# Adicione aqui o que seu .env usa:
+      DB_HOST: localhost
+      DB_USER: root
+      DB_PASS: password
+      DB_NAME: carita
+    volumes:
+  ./backend:/app
+  /app/node_modules
+  restart: always
+```
+### Front-end Docker 
+``` bash
+
+  projetocarita/carita front
+
+  docker.compose.yml 
+
+  código:
+
+
+  version: '3.8'
+
+  services:
+    backend:
+      build:
+        context: ./backend
+        dockerfile: Dockerfile
+      container_name: backend_carita
+      ports:
+        
+  "3000:3000"
+    restart: always
+
+    frontend:
+      build:
+        context: ./frontend
+        dockerfile: Dockerfile
+      container_name: frontend_carita
+      ports:
+        
+  "4200:80"
+    depends_on:
+  backend
+  restart: always
+```
+
+### Docker Compose 
+``` bash
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: carita_backend
+    ports:
+      
+"3000:3000"
+  environment:
+    NODE_ENV: production
+    PORT: 3000# coloque aqui o que seu backend usa:
+    DB_HOST: localhost
+    DB_USER: root
+    DB_PASS: password
+    DB_NAME: carita
+  volumes:
+./backend:/app
+restart: always
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: carita_frontend
+    ports:
+      
+"4200:80"
+  depends_on:
+backend
+restart: always
+
+#Comando do docker
+1 - Subir o projeto (frontend + backend)
+docker compose up --build
+
+2 - Subir novamente sem rebuild
+docker compose up -d
+
+3 - Parar tudo
+docker compose down
+
+4 - Ver logs
+docker compose logs -f
+
+5 - Verificar containers
+docker ps
 ```
 
 ## 📚 **Swagger - Documentação Interativa da API**
