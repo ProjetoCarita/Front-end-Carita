@@ -43,9 +43,9 @@ export class DoacaoComponent {
       price: this.valorDoacao,
       description: `Doação via PIX ${this.instituicaoSelecionada}`,
       redirectUrls: {
-        success: 'http://localhost:4200/success',
-        failure: 'http://localhost:4200/failure',
-        pending: 'http://localhost:4200/pending'
+        success: 'https://frontend-carita-six.vercel.app/success',
+        failure: 'https://frontend-carita-six.vercel.app/failure',
+        pending: 'https://frontend-carita-six.vercel.app/pending'
       }
     };
 
